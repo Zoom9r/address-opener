@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@android:color/white">
+
+    <!-- Основна адреса -->
+    <TextView
+        android:id="@+id/streetTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Вулиця, будинок"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black" />
+
+    <!-- Підказка (близькі АО-адреси) -->
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/hintTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:background="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:padding="4dp"
+        android:visibility="gone" />
+
+    <!-- Кнопка для видалення адреси -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Видалити"
+        android:textColor="@android:color/white"
+        style="@style/Widget.MaterialComponents.Button" />
+
+</LinearLayout>
+

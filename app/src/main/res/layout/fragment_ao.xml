@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".AOFragment">
+
+    <!-- Поле для введення назви вулиці -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Введіть назву вулиці"
+        app:endIconMode="clear_text"
+        app:boxBackgroundMode="outline"
+        app:hintTextAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/streetInputAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Випадаючий список для вибору будинку -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Виберіть будинок"
+        app:boxBackgroundMode="outline">
+
+        <Spinner
+            android:id="@+id/houseSpinnerAO"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Поле для введення квартири -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:hint="Введіть номер квартири"
+        app:endIconMode="none">
+
+        <EditText
+            android:id="@+id/apartmentInputAO"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Кнопка для додавання адреси -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/addAddressButtonAO"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Додати адресу"
+        android:textColor="@color/white"
+        style="@style/Widget.MaterialComponents.Button" />
+
+    <!-- RecyclerView для відображення списку адрес -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedAddressesRecyclerViewAO"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+</LinearLayout>
