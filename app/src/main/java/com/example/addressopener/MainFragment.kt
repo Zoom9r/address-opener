@@ -1,3 +1,5 @@
+package com.example.addressopener
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,13 +15,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.addressopener.MainAddressAdapter
-import com.example.addressopener.House
-import com.example.addressopener.R
-import com.example.addressopener.Street
-import com.example.addressopener.calculateDistance
-import com.example.addressopener.generateKmlContent
-import com.example.addressopener.readStreetsDataFromFile
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
@@ -83,7 +79,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             if (streetData != null) {
                 updateHouseSpinner(streetData.houses)
             } else {
-                Toast.makeText(requireContext(), "Будинки для обраної вулиці не знайдено!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Будинки для обраної вулиці не знайдено!",
+                    Toast.LENGTH_SHORT
+                ).show()
                 updateHouseSpinner(emptyList())
             }
         }
@@ -128,30 +128,53 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
                 Toast.makeText(requireContext(), "Адреса додана!", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(requireContext(), "Не вдалося знайти дані для цієї адреси.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    "Не вдалося знайти дані для цієї адреси.",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
         // Подія для кнопки "Додати в закладки"
+        // Подія для кнопки "Додати в закладки"
         saveButton.setOnClickListener {
             if (selectedAddresses.isEmpty()) {
-                Toast.makeText(requireContext(), "Додайте хоча б одну адресу!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Додайте хоча б одну адресу!", Toast.LENGTH_SHORT)
+                    .show()
                 return@setOnClickListener
             }
 
-            val kmlFile = File(requireContext().filesDir, "bookmarks.kml")
-            val kmlContent = generateKmlContent(selectedAddresses)
+            // Створюємо MaterialAlertDialog для підтвердження дії
+            MaterialAlertDialogBuilder(requireContext())
+                .setTitle("Створити список?")
+                .setMessage("Вас буде перенаправлено в додаток Maps.me")
+                .setPositiveButton("Так") { _, _ ->
+                    // Якщо натиснуто "Так" — виконується основний код
+                    val kmlFile = File(requireContext().filesDir, "bookmarks.kml")
+                    val kmlContent = generateKmlContent(selectedAddresses)
 
-            try {
-                FileOutputStream(kmlFile).use { outputStream ->
-                    outputStream.write(kmlContent.toByteArray())
+                    try {
+                        FileOutputStream(kmlFile).use { outputStream ->
+                            outputStream.write(kmlContent.toByteArray())
+                        }
+                        Toast.makeText(requireContext(), "KML-файл збережено!", Toast.LENGTH_SHORT)
+                            .show()
+                        shareKmlFile(kmlFile)
+                    } catch (e: Exception) {
+                        e.printStackTrace()
+                        Toast.makeText(
+                            requireContext(),
+                            "Помилка запису в KML-файл: ${e.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
                 }
-                Toast.makeText(requireContext(), "KML-файл збережено!", Toast.LENGTH_SHORT).show()
-                shareKmlFile(kmlFile)
-            } catch (e: Exception) {
-                e.printStackTrace()
-                Toast.makeText(requireContext(), "Помилка запису в KML-файл: ${e.message}", Toast.LENGTH_SHORT).show()
-            }
+                .setNegativeButton("Ні") { dialog, _ ->
+                    // Якщо натиснуто "Ні" — просто закривається діалог
+                    dialog.dismiss()
+                }
+                .show()
         }
 
         loadAOAddresses()
@@ -166,7 +189,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         } else {
             houseSpinner.isEnabled = true // Розблокувати Spinner
             val houseList = houses.map { it.number }
-            val houseAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, houseList)
+            val houseAdapter =
+                ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, houseList)
             houseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             houseSpinner.adapter = houseAdapter
         }
@@ -198,7 +222,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun shareKmlFile(file: File) {
-        val uri = FileProvider.getUriForFile(requireContext(), "com.example.addressopener.fileprovider", file)
+        val uri = FileProvider.getUriForFile(
+            requireContext(),
+            "com.example.addressopener.fileprovider",
+            file
+        )
         val intent = Intent(Intent.ACTION_SEND).apply {
             type = "application/vnd.google-earth.kml+xml"
             putExtra(Intent.EXTRA_STREAM, uri)

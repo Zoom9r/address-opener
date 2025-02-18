@@ -3,39 +3,55 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/main_address_card"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:background="@android:color/white">
+    android:padding="8dp">
 
-    <!-- Основна адреса -->
-    <TextView
-        android:id="@+id/streetTextView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Вулиця, будинок"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        android:textColor="@android:color/black" />
+        android:orientation="horizontal">
 
+        <!-- Основна адреса -->
+        <TextView
+            android:id="@+id/streetTextView"
+            android:layout_width="222dp"
+            android:layout_height="match_parent"
+            android:text="Вулиця, будинок"
+            android:textAlignment="textStart"
+            android:textColor="@android:color/black"
+            android:textSize="17sp" />
+
+        <!-- Кнопка для видалення адреси -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/deleteButton"
+            style="@style/Widget.MaterialComponents.Button"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:text="Видалити"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
     <!-- Підказка (близькі АО-адреси) -->
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/hintTextView"
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        android:background="@android:color/darker_gray"
-        android:textSize="14sp"
-        android:padding="4dp"
-        android:visibility="gone" />
+        app:cardBackgroundColor="@android:color/darker_gray"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        app:strokeColor="#4B4949"
+        app:strokeWidth="1dp">
 
-    <!-- Кнопка для видалення адреси -->
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/deleteButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Видалити"
-        android:textColor="@android:color/white"
-        style="@style/Widget.MaterialComponents.Button" />
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/hintTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:textColor="@android:color/black"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </com.google.android.material.card.MaterialCardView>
 
 </LinearLayout>
 

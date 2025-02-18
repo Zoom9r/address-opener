@@ -6,6 +6,16 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <!-- Список адрес -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/addressRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:background="@drawable/main_addresses_list"
+        android:scrollbars="vertical" />
+
     <!-- Поле для введення назви вулиці -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -19,10 +29,11 @@
             android:id="@+id/streetInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:padding="12dp"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:padding="12dp"
+            android:textSize="18sp" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Вибір будинку -->
@@ -43,29 +54,20 @@
     <!-- Кнопка для додавання адреси -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/addButton"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Додати адресу"
-        android:textColor="@color/white"
-        style="@style/Widget.MaterialComponents.Button" />
-
-    <!-- Список адрес -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/addressRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
+        android:textColor="@color/white" />
 
     <!-- Кнопка для збереження в закладки -->
     <com.google.android.material.button.MaterialButton
         android:id="@+id/saveButton"
+        style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Додати в закладки"
-        android:textColor="@color/white"
-        style="@style/Widget.MaterialComponents.Button" />
+        android:textColor="@color/white" />
 
 </LinearLayout>

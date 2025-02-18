@@ -8,6 +8,15 @@
     android:padding="16dp"
     tools:context=".AOFragment">
 
+    <!-- RecyclerView для відображення списку адрес -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/savedAddressesRecyclerViewAO"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
     <!-- Поле для введення назви вулиці -->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
@@ -65,14 +74,5 @@
         android:text="Додати адресу"
         android:textColor="@color/white"
         style="@style/Widget.MaterialComponents.Button" />
-
-    <!-- RecyclerView для відображення списку адрес -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/savedAddressesRecyclerViewAO"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_weight="1"
-        android:scrollbars="vertical" />
 
 </LinearLayout>
