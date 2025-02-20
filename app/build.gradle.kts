@@ -54,6 +54,8 @@ dependencies {
     implementation(libs.play.services.basement)
     implementation(libs.androidx.recyclerview)
     implementation(libs.material)
+    implementation(libs.androidx.core.splashscreen)
+
 
 
 
