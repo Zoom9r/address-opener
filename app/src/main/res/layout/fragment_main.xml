@@ -20,7 +20,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введіть назву вулиці"
+        android:hint="@string/street_name"
         app:boxBackgroundMode="outline"
         app:endIconMode="clear_text"
         app:hintTextAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:hint="Виберіть будинок"
+        android:hint="@string/select_house"
         app:boxBackgroundMode="outline">
 
         <Spinner
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Додати адресу"
+        android:text="@string/add_address"
         android:textColor="@color/white" />
 
     <!-- Кнопка для збереження в закладки -->
@@ -67,7 +67,7 @@
         style="@style/Widget.MaterialComponents.Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Додати в закладки"
+        android:text="@string/add_to_bookmarks"
         android:textColor="@color/white" />
 
 </LinearLayout>

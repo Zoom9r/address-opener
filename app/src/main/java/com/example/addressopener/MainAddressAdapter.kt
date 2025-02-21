@@ -24,7 +24,7 @@ class MainAddressAdapter(
         // Відображення підказки (близькі АО-адреси)
         val hint = address["hint"]
         if (!hint.isNullOrEmpty()) {
-            holder.hintTextView.text = "Поруч:\n$hint"
+            holder.hintTextView.text = "${holder.itemView.context.getString(R.string.near_hint)}\n$hint"
             holder.hintTextView.visibility = View.VISIBLE
         } else {
             holder.hintTextView.visibility = View.GONE

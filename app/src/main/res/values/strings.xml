@@ -1,19 +1,48 @@
 <resources>
     <string name="app_name">Address Opener</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <!--Settings-->
+    <string name="title_activity_settings">Settings</string>
+    <string name="subtitle_settings">About App</string>
+    <string name="settings_icon">icon</string>
+    <string name="language">Language</string>
+    <string name="language_select">Change language</string>
+    <string name="app_version">App version</string>
+    <string name="developer">Developed by</string>
+    <string name="youtube_header">Click to earn!</string>
+    <string name="youtube_text">Free money</string>
+    <!--ActivitySplash-->
+    <string name="developer_info">Zoom9r powered</string>
+    <!--AOAddressAdapter-->
+    <string name="unknown">unknown</string>
+    <string name="without_an_apartment">-</string>
+    <!-- AOAFragment -->
+    <string name="fill_in_all_fields_or_data_not_found">Fill in all fields or data not found!</string>
+    <!--MainActivity-->
+    <string name="main_fragment">Main</string>
+    <string name="ao_fragment">SB</string>
+    <!--MainAddressAdapter-->
+    <string name="near_hint">near</string>
+    <!--MainFragment-->
+    <string name="no_houses_found">No houses found for the selected street!</string>
+    <string name="address_added">Address added!</string>
+    <string name="no_address_data">Data for this address could not be found.</string>
+    <string name="empty_list_warning">Add at least one address!</string>
+    <string name="create_list_warning">Create a list?</string>
+    <string name="map_redirect">You will be redirected to the Maps.me app</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="file_save">KML file saved!</string>
+    <string name="kml_write_error">Error writing to KML file: %s</string>
+    <string name="select_house">Select a house</string>
+    <!--res/layout-->
+    <string name="street_name">Enter street name</string>
+    <string name="apartment_number">Enter the apartment number</string>
+    <string name="add_address">Add address</string>
+    <string name="add_to_bookmarks">Add to bookmarks</string>
+    <string name="street_and_house">Street, house</string>
+    <string name="delete">Delete</string>
+    <string name="street">Street</string>
+    <string name="house">House</string>
+    <string name="apartment">Apartment</string>
 
-    <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
 </resources>

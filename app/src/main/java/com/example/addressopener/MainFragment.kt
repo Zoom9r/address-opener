@@ -81,7 +81,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Будинки для обраної вулиці не знайдено!",
+                    getString(R.string.no_houses_found),
                     Toast.LENGTH_SHORT
                 ).show()
                 updateHouseSpinner(emptyList())
@@ -126,11 +126,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 selectedAddresses.add(addressWithHint)
                 addressAdapter.notifyItemInserted(selectedAddresses.size - 1)
 
-                Toast.makeText(requireContext(), "Адреса додана!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.address_added), Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Не вдалося знайти дані для цієї адреси.",
+                    getString(R.string.no_address_data),
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -140,16 +140,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Подія для кнопки "Додати в закладки"
         saveButton.setOnClickListener {
             if (selectedAddresses.isEmpty()) {
-                Toast.makeText(requireContext(), "Додайте хоча б одну адресу!", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), getString(R.string.empty_list_warning), Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
 
             // Створюємо MaterialAlertDialog для підтвердження дії
             MaterialAlertDialogBuilder(requireContext())
-                .setTitle("Створити список?")
-                .setMessage("Вас буде перенаправлено в додаток Maps.me")
-                .setPositiveButton("Так") { _, _ ->
+                .setTitle(getString(R.string.create_list_warning))
+                .setMessage(getString(R.string.map_redirect))
+                .setPositiveButton(getString(R.string.yes)) { _, _ ->
                     // Якщо натиснуто "Так" — виконується основний код
                     val kmlFile = File(requireContext().filesDir, "bookmarks.kml")
                     val kmlContent = generateKmlContent(selectedAddresses)
@@ -158,19 +158,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                         FileOutputStream(kmlFile).use { outputStream ->
                             outputStream.write(kmlContent.toByteArray())
                         }
-                        Toast.makeText(requireContext(), "KML-файл збережено!", Toast.LENGTH_SHORT)
+                        Toast.makeText(requireContext(), getString(R.string.file_save), Toast.LENGTH_SHORT)
                             .show()
                         shareKmlFile(kmlFile)
                     } catch (e: Exception) {
                         e.printStackTrace()
                         Toast.makeText(
                             requireContext(),
-                            "Помилка запису в KML-файл: ${e.message}",
+                            getString(R.string.kml_write_error, e.message),
                             Toast.LENGTH_SHORT
                         ).show()
                     }
+
                 }
-                .setNegativeButton("Ні") { dialog, _ ->
+                .setNegativeButton(getString(R.string.cancel)) { dialog, _ ->
                     // Якщо натиснуто "Ні" — просто закривається діалог
                     dialog.dismiss()
                 }
@@ -202,7 +203,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val defaultAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            listOf("Виберіть будинок")
+            listOf(getString(R.string.select_house))
         )
         defaultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         houseSpinner.adapter = defaultAdapter

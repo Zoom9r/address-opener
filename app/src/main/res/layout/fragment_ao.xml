@@ -21,7 +21,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Введіть назву вулиці"
+        android:hint="@string/street_name"
         app:endIconMode="clear_text"
         app:boxBackgroundMode="outline"
         app:hintTextAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
@@ -41,7 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Виберіть будинок"
+        android:hint="@string/select_house"
         app:boxBackgroundMode="outline">
 
         <Spinner
@@ -56,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:hint="Введіть номер квартири"
+        android:hint="@string/apartment_number"
         app:endIconMode="none">
 
         <EditText
@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:text="Додати адресу"
+        android:text="@string/add_address"
         android:textColor="@color/white"
         style="@style/Widget.MaterialComponents.Button" />
 

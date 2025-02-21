@@ -1,5 +1,6 @@
 package com.example.addressopener
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -12,6 +13,10 @@ import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MainActivity : AppCompatActivity() {
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(LocaleHelper.applyLocale(newBase))
+    }
 
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager2
@@ -41,8 +46,8 @@ class MainActivity : AppCompatActivity() {
         // З'єднуємо TabLayout з ViewPager2
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = when (position) {
-                0 -> "Основна"
-                1 -> "АО"
+                0 -> getString(R.string.main_fragment)
+                1 -> getString(R.string.ao_fragment)
                 else -> null
             }
         }.attach()

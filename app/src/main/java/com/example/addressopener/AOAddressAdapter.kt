@@ -13,15 +13,16 @@ class AOAddressAdapter(
 ) : RecyclerView.Adapter<AOAddressAdapter.AddressViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddressViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_address_ao, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_address_ao, parent, false)
         return AddressViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: AddressViewHolder, position: Int) {
         val address = addresses[position]
-        val street = address["street"] ?: "Невідомо"
-        val house = address["house"] ?: "Невідомо"
-        val apartment = address["apartment"]?.takeIf { it.isNotEmpty() } ?: "Без квартири"
+        val street = address["street"] ?: "unknown"
+        val house = address["house"] ?: "unknown"
+        val apartment = address["apartment"]?.takeIf { it.isNotEmpty() } ?: "-"
 
         holder.streetTextView.text = street
         holder.houseTextView.text = house

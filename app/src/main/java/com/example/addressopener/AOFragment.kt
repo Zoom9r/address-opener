@@ -1,6 +1,11 @@
 package com.example.addressopener
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Button
@@ -13,11 +18,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import android.text.Editable
-import android.text.TextWatcher
 
 class AOFragment : Fragment(R.layout.fragment_ao) {
 
@@ -47,7 +47,7 @@ class AOFragment : Fragment(R.layout.fragment_ao) {
         resetHouseSpinner()
 
         // Завантаження даних із файлу JSON
-        streetsData = readStreetsDataFromFile(requireContext(), "vinnytsia_streets_final.json")
+        streetsData = readStreetsDataFromFile(requireContext(), "vinnytsia_streets_version_3.json")
 
         setupStreetInput()
         setupRecyclerView()
@@ -60,7 +60,8 @@ class AOFragment : Fragment(R.layout.fragment_ao) {
 
     private fun setupStreetInput() {
         val streetNames = streetsData.map { it.name } // Список назв вулиць
-        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, streetNames)
+        val adapter =
+            ArrayAdapter(requireContext(), android.R.layout.simple_dropdown_item_1line, streetNames)
         streetInputAO.setAdapter(adapter)
 
         // Подія вибору вулиці
@@ -84,6 +85,7 @@ class AOFragment : Fragment(R.layout.fragment_ao) {
                     resetHouseSpinner()
                 }
             }
+
             override fun afterTextChanged(s: Editable?) {}
         })
     }
@@ -92,7 +94,7 @@ class AOFragment : Fragment(R.layout.fragment_ao) {
         val defaultAdapter = ArrayAdapter(
             requireContext(),
             android.R.layout.simple_spinner_item,
-            listOf("Виберіть будинок") // Текст для відображення
+            listOf(getString(R.string.select_house)) // Текст для відображення
         )
         defaultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         houseSpinnerAO.adapter = defaultAdapter
@@ -140,9 +142,17 @@ class AOFragment : Fragment(R.layout.fragment_ao) {
                 savedAddresses.add(addressData)
                 addressAdapterAO.notifyItemInserted(savedAddresses.size - 1)
                 saveAddressesToFile()
-                Toast.makeText(requireContext(), "Адреса додана!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.address_added),
+                    Toast.LENGTH_SHORT
+                ).show()
             } else {
-                Toast.makeText(requireContext(), "Заповніть всі поля або дані не знайдені!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.fill_in_all_fields_or_data_not_found),
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }

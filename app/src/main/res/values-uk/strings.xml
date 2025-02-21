@@ -1,0 +1,47 @@
+<resources>
+    <string name="app_name">Address Opener</string>
+    <!-- Налаштування -->
+    <string name="title_activity_settings">Налаштування</string>
+    <string name="subtitle_settings">Про застосунок</string>
+    <string name="settings_icon">Іконка</string>
+    <string name="language">Мова</string>
+    <string name="language_select">Змінити мову</string>
+    <string name="app_version">Версія застосунку</string>
+    <string name="developer">Розробник</string>
+    <string name="youtube_header">Натисніть, щоб заробити!</string>
+    <string name="youtube_text">Безкоштовні гроші</string>
+    <!-- ActivitySplash -->
+    <string name="developer_info">Розроблено Zoom9r</string>
+    <!-- AOAddressAdapter -->
+    <string name="unknown">невідомо</string>
+    <string name="without_an_apartment">-</string>
+    <!-- AOAFragment -->
+    <string name="fill_in_all_fields_or_data_not_found">Заповніть всі поля або дані не знайдені!</string>
+    <!-- MainActivity -->
+    <string name="main_fragment">Головна</string>
+    <string name="ao_fragment">AO</string>
+    <!-- MainAddressAdapter -->
+    <string name="near_hint">поруч</string>
+    <!-- MainFragment -->
+    <string name="no_houses_found">Не знайдено будинків на вибраній вулиці!</string>
+    <string name="address_added">Адресу додано!</string>
+    <string name="no_address_data">Дані для цієї адреси не знайдено.</string>
+    <string name="empty_list_warning">Додайте хоча б одну адресу!</string>
+    <string name="create_list_warning">Створити список?</string>
+    <string name="map_redirect">Ви будете перенаправлені до застосунку Maps.me</string>
+    <string name="yes">Так</string>
+    <string name="cancel">Скасувати</string>
+    <string name="file_save">KML-файл збережено!</string>
+    <string name="kml_write_error">Помилка запису в KML-файл: %s</string>
+    <string name="select_house">Виберіть будинок</string>
+    <!-- res/layout -->
+    <string name="street_name">Введіть назву вулиці</string>
+    <string name="apartment_number">Введіть номер квартири</string>
+    <string name="add_address">Додати адресу</string>
+    <string name="add_to_bookmarks">Додати в закладки</string>
+    <string name="street_and_house">Вулиця, будинок</string>
+    <string name="delete">Видалити</string>
+    <string name="street">Вулиця</string>
+    <string name="house">Будинок</string>
+    <string name="apartment">Квартира</string>
+</resources>
