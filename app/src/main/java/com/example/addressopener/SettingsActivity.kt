@@ -2,9 +2,11 @@ package com.example.addressopener
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.ListPreference
+import androidx.preference.Preference
 import androidx.preference.PreferenceManager
 
 class SettingsActivity : AppCompatActivity() {
@@ -66,7 +68,20 @@ class SettingsActivity : AppCompatActivity() {
 
                 true
             }
+            // Обробка натискання на YouTube посилання
+            val youtubePreference: Preference? = findPreference("youtube_link")
+            youtubePreference?.setOnPreferenceClickListener {
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley")
+                )
+                startActivity(intent)
+                true
+            }
+
         }
+
+
     }
 
 
