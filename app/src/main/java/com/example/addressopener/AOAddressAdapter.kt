@@ -22,7 +22,7 @@ class AOAddressAdapter(
         val address = addresses[position]
         val street = address["street"] ?: "unknown"
         val house = address["house"] ?: "unknown"
-        val apartment = address["apartment"]?.takeIf { it.isNotEmpty() } ?: "-"
+        val apartment = address["apartment"]?.takeIf { it.isNotEmpty() } ?: "—"
 
         holder.streetTextView.text = street
         holder.houseTextView.text = house

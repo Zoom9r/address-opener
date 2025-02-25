@@ -3,23 +3,33 @@
     <PreferenceCategory app:title="@string/language">
 
         <ListPreference
-            app:key="language"
-            app:title="@string/language_select"
+            app:defaultValue="en"
             app:dialogTitle="@string/language_select"
             app:entries="@array/language_options"
             app:entryValues="@array/language_values"
-            app:defaultValue="en"
-            app:summary="%s" />
+            app:key="language"
+            app:summary="%s"
+            app:title="@string/language_select" />
 
     </PreferenceCategory>
 
+    <PreferenceCategory app:title="@string/theme">
+        <ListPreference
+            app:defaultValue="system"
+            app:entries="@array/theme_options"
+            app:entryValues="@array/theme_values"
+            app:key="theme"
+            app:summary="%s"
+            app:title="@string/theme_summary" />
+
+    </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/subtitle_settings">
 
         <!-- Відображення версії додатку -->
         <Preference
             app:key="app_version"
-            app:summary="1.1.0"
+            app:summary="1.2.0"
             app:title="@string/app_version" />
 
         <!-- Відображення імені розробника -->

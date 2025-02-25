@@ -6,6 +6,20 @@
     <string name="settings_icon">icon</string>
     <string name="language">Language</string>
     <string name="language_select">Change language</string>
+    <string name="theme">Theme</string>
+    <string name="theme_summary">Change theme</string>
+    <string-array name="theme_options">
+        <item>System</item>
+        <item>Light</item>
+        <item>Dark</item>
+    </string-array>
+
+    <string-array name="theme_values">
+        <item>system</item>
+        <item>light</item>
+        <item>dark</item>
+    </string-array>
+
     <string name="app_version">App version</string>
     <string name="developer">Developed by</string>
     <string name="youtube_header">Click to earn!</string>

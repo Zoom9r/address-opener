@@ -59,7 +59,7 @@
         android:hint="@string/apartment_number"
         app:endIconMode="none">
 
-        <EditText
+        <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/apartmentInputAO"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />

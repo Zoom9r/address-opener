@@ -79,6 +79,23 @@ class SettingsActivity : AppCompatActivity() {
                 true
             }
 
+            val themePreference = findPreference<ListPreference>("theme")
+            themePreference?.setOnPreferenceChangeListener { preference, newValue ->
+
+                // Зберігаємо нове значення в SharedPreferences вручну
+                val prefs = PreferenceManager.getDefaultSharedPreferences(requireContext())
+                prefs.edit().putString(preference.key, newValue as String).apply()
+
+                // Викликаємо applyTheme() з новим значенням
+                ThemeUtils.applyTheme(requireContext())
+
+                // Перезапускаємо активність
+                requireActivity().recreate()
+
+                true
+            }
+
+
         }
 
 
